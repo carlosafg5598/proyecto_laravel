@@ -38,6 +38,8 @@ Route::middleware(['auth', 'role:cliente'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/clientes', [AdminController::class, 'index'])->name('admin.clientes');
     Route::get('/admin/perfil', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::put('/admin/perfil/update', [AdminController::class, 'updateProfile'])->name('admin.update'); // ✅ Agregada
+    Route::put('/admin/perfil/change-password', [AdminController::class, 'updatePassword'])->name('admin.password'); // ✅ Agregada
     Route::delete('/admin/clientes/{id}', [AdminController::class, 'destroyCliente'])->name('admin.clientes.destroy');
 });
 
