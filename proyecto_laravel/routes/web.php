@@ -41,7 +41,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/admin/perfil/update', [AdminController::class, 'updateProfile'])->name('admin.update'); // ✅ Agregada
     Route::put('/admin/perfil/change-password', [AdminController::class, 'updatePassword'])->name('admin.password'); // ✅ Agregada
     Route::delete('/admin/clientes/{id}', [AdminController::class, 'destroyCliente'])->name('admin.clientes.destroy');
+    Route::get('/admin/clientes/{id}/edit', [AdminController::class, 'editCliente'])->name('admin.clientes.edit');
+    Route::put('/admin/clientes/{id}', [AdminController::class, 'updateCliente'])->name('admin.clientes.update');
+    Route::get('/admin/historial', [AdminController::class, 'historial'])->name('admin.historial');
 });
+
+
 
 // Ruta Home (Redirección después de iniciar sesión)
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

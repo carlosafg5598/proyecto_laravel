@@ -30,6 +30,7 @@
                 <td>{{ $cliente->direccion }}</td>
                 <td>{{ $cliente->telefono }}</td>
                 <td>
+                    <a href="{{ route('admin.clientes.edit', $cliente->id) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('admin.clientes.destroy', $cliente->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

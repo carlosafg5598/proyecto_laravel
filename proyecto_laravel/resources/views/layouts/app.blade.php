@@ -33,6 +33,9 @@
                             <a class="nav-link" href="{{ route('admin.clientes') }}">Gestionar Clientes</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.historial') }}">Historial de Cambios</a> <!-- 🔹 Nuevo enlace -->
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.profile') }}">Mi Perfil</a>
                         </li>
                         @else
