@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AccionAdministrativa extends Model
 {
     use HasFactory;
-    protected $table = 'acciones_administrativas';
+    protected $table = 'acciones_administrativas';//TODO ARREGLAR AL ELIMINAR UN USUARIO QUE NO FALLE
 
     protected $fillable = ['admin_id', 'cliente_id', 'otro_admin_id', 'accion', 'detalles'];
 

@@ -26,19 +26,20 @@ class AdminController extends Controller
         $cliente = Cliente::find($id);
 
         if ($cliente) {
+            $admin_id = auth()->id();
             $detalles = "Eliminado Cliente: {$cliente->user->name}, Email: {$cliente->user->email}";
-            // Eliminar el cliente
-            $cliente->delete();
             // Registrar acción en acciones_administrativas
+            $user = User::find($cliente->user_id);
             AccionAdministrativa::create([
                 'admin_id' => auth()->id(),
                 'cliente_id' => $id,
                 'accion' => 'Eliminación',
                 'detalles' => $detalles,
             ]);
+            // Eliminar el cliente
+            $cliente->delete();
 
             // Opcional: También eliminar el usuario vinculado
-            $user = User::find($cliente->user_id);
             if ($user) {
                 $user->delete();
             }

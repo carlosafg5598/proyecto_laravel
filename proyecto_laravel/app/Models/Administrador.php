@@ -19,4 +19,14 @@ class Administrador extends Model
     {
         return $this->user ? $this->user->name : 'Sin nombre';
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($admin) {
+            if ($admin->user) {
+                $admin->user->delete(); // Eliminar manualmente el usuario al eliminar el administrador
+            }
+        });
+    }
 }
